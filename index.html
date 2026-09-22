@@ -5,9 +5,54 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="theme-color" content="#102a43" />
 		<title>Clima Agora | Previsão do tempo</title>
+		<link rel="stylesheet" href="./src/styles/style.css" />
 	</head>
 	<body>
-		<div id="app"></div>
-		<script type="module" src="./src/scripts/api.js"></script>
+		<main class="weather-app">
+			<section class="hero">
+				<div class="eyebrow">
+					<span class="eyebrow-dot"></span> Previsão em tempo real
+				</div>
+				<h1>O céu da sua<br /><em>cidade.</em></h1>
+				<p class="intro">
+					Descubra a temperatura, as condições atuais e a previsão dos próximos
+					dias.
+				</p>
+				<form class="search-form" id="search-form">
+					<label class="sr-only" for="city-input"
+						>Digite o nome da cidade</label
+					>
+					<span class="search-icon" aria-hidden="true">⌕</span>
+					<input
+						id="city-input"
+						name="city"
+						type="search"
+						placeholder="Qual cidade você quer consultar?"
+						autocomplete="off"
+						required
+					/>
+					<button type="submit">
+						Buscar <span aria-hidden="true">↗</span>
+					</button>
+				</form>
+				<p class="search-hint">Ex.: Curitiba,PR, São Paulo, Lisboa</p>
+			</section>
+
+			<section class="content" aria-live="polite">
+				<div class="message" id="message">
+					Digite uma cidade para começar sua consulta.
+				</div>
+				<div id="weather-result"></div>
+			</section>
+
+			<footer>
+				Dados meteorológicos fornecidos por
+				<a href="https://open-meteo.com/" target="_blank" rel="noreferrer"
+					>Open-Meteo</a
+				>
+			</footer>
+		</main>
+
+		<script type="module" src="./src/scripts/main.js"></script>
 	</body>
 </html>
